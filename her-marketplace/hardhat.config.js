@@ -1,11 +1,18 @@
-require("@nomicfoundation/hardhat-toolbox");
 require("@nomiclabs/hardhat-waffle");
+require("@nomiclabs/hardhat-ethers");
+//require("@nomiclabs/hardhat-truffle5");
+require("@nomiclabs/hardhat-etherscan");
+//require("hardhat-deploy");
 
-const fs = require("fs");
-const privateKey = fs.readFileSync(".secret").toString();
+require("dotenv").config();
+
+//const fs = require("fs");
+//const privateKey = fs.readFileSync(".env").toString();
+
+const privateKey = process.env.PRIVATE_KEY.toString();
 const projectId = "7744a5064f8043a2bfa39aba3e953b81";
 
-/** @type import('hardhat/config').HardhatUserConfig */
+
 module.exports = {
   networks: {
     hardhat: {
@@ -22,3 +29,4 @@ module.exports = {
   },
   solidity: "0.8.9",
 };
+
